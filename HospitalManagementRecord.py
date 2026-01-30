@@ -1,3 +1,4 @@
+//Hospital ManageMent Record
 # ----------------- IMPORTS -----------------
 import tkinter as tk  # GUI components
 from tkinter import messagebox, simpledialog  # Popups & dialogs for alerts and input
@@ -202,3 +203,4 @@ refresh_display()
 
 # Run the GUI loop (wait for user interaction)
 root.mainloop()
+
