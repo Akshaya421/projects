@@ -1,0 +1,116 @@
+import java.util.Scanner;
+
+class Student {
+    int id;
+    String name;
+    int age;
+    String course;
+
+    Student(int id, String name, int age, String course) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.course = course;
+    }
+}
+
+public class Main {
+
+    static Student[] students = new Student[50];
+    static int count = 0;
+    static Scanner sc = new Scanner(System.in);
+
+    public static void addStudent() {
+        System.out.print("Enter ID: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Age: ");
+        int age = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Course: ");
+        String course = sc.nextLine();
+
+        students[count++] = new Student(id, name, age, course);
+        System.out.println("Student Added Successfully!\n");
+    }
+
+    public static void viewStudents() {
+        if (count == 0) {
+            System.out.println("No records found.\n");
+            return;
+        }
+
+        System.out.println("\n--- Student Records ---");
+        for (int i = 0; i < count; i++) {
+            System.out.println("ID: " + students[i].id +
+                    ", Name: " + students[i].name +
+                    ", Age: " + students[i].age +
+                    ", Course: " + students[i].course);
+        }
+        System.out.println();
+    }
+
+    public static void searchStudent() {
+        System.out.print("Enter ID to Search: ");
+        int id = sc.nextInt();
+
+        for (int i = 0; i < count; i++) {
+            if (students[i].id == id) {
+                System.out.println("Record Found!");
+                System.out.println("Name: " + students[i].name);
+                System.out.println("Age: " + students[i].age);
+                System.out.println("Course: " + students[i].course);
+                System.out.println();
+                return;
+            }
+        }
+        System.out.println("Student Not Found!\n");
+    }
+
+    public static void deleteStudent() {
+        System.out.print("Enter ID to Delete: ");
+        int id = sc.nextInt();
+
+        for (int i = 0; i < count; i++) {
+            if (students[i].id == id) {
+                for (int j = i; j < count - 1; j++) {
+                    students[j] = students[j + 1];
+                }
+                count--;
+                System.out.println("Student Deleted Successfully!\n");
+                return;
+            }
+        }
+        System.out.println("ID Not Found!\n");
+    }
+
+    public static void main(String[] args) {
+        int choice;
+
+        while (true) {
+            System.out.println("=== Student Management System ===");
+            System.out.println("1. Add Student");
+            System.out.println("2. View Students");
+            System.out.println("3. Search Student");
+            System.out.println("4. Delete Student");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1: addStudent(); break;
+                case 2: viewStudents(); break;
+                case 3: searchStudent(); break;
+                case 4: deleteStudent(); break;
+                case 5: System.out.println("Exiting..."); return;
+                default: System.out.println("Invalid Option!\n");
+            }
+        }
+    }
+}
