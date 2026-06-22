@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+
+    <style>
+        body{
+            background-image:url("image1.png");
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-attachment:fixed;
+            margin:0;
+        }
+
+        h1{
+            text-align:center;
+            color:purple;
+            margin-top:200px;
+            margin-bottom:150px;
+        }
+
+        .clock{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+        }
+
+        .box{
+            text-align:center;
+        }
+
+        h3{
+            color:purple;
+            margin-bottom:10px;
+        }
+        #ampm{
+            border:2px solid black;
+            padding:15px;
+            width:20px;
+            background-color:lavender;
+            color:blue;
+            font-size:15px;
+            font-weight:bold;
+            text-align:center;
+            margin-top:70px;
+
+        }
+
+        #hour,#minute,#second{
+            border:2px solid black;
+            padding:20px;
+            width:50px;
+            background-color:lavender;
+            color:blue;
+            font-size:25px;
+            font-weight:bold;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Digital Clock</h1>
+    
+    <div class="clock">
+
+        <div class="box">
+            <h3>Hours</h3>
+            <div id="hour">00</div>
+        </div>
+
+        <div class="box">
+            <h3>Minutes</h3>
+            <div id="minute">00</div>
+        </div>
+
+        <div class="box">
+            <h3>Seconds</h3>
+            <div id="second">00</div>
+        </div>
+        <div id="ampm">AM</div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
